@@ -76,7 +76,12 @@ bitbake <image-name>
 Example:
 
 ```bash
-bitbake core-image-minimal
+bitbake core-image-base
+```
+or 
+
+```bash
+bitbake core-image-weston
 ```
 
 ## Project Goals
