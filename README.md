@@ -54,6 +54,17 @@ After downloading the layers:
 3. Add the custom layer included in this repository.
 4. Verify the layer paths in `bblayers.conf`.
 
+You can also add layers using the `bitbake-layers` command:
+
+```bash
+bitbake-layers add-layer ../meta-openembedded/meta-oe
+bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers add-layer ../meta-qt6
+bitbake-layers add-layer ../meta-dawid
+```
+
+Use paths appropriate for your directory structure.
+
 ## Building the Image
 
 ```bash
