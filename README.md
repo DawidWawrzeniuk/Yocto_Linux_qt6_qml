@@ -1,19 +1,92 @@
-# Yocto Linux with Qt6 and QML
+# Yocto Linux + Qt6/QML
 
-This repository contains the configuration files (`local.conf`, `bblayers.conf`) and a custom meta-layer designed to build a custom embedded Linux distribution featuring **Qt6** and **QML** support.
+This project presents a Yocto environment configuration for building an Embedded Linux image with Qt6 and QML support.
 
-To keep the repository clean, standard upstream layers are not included and must be fetched separately.
+The repository contains only custom configuration files and a custom Yocto layer. Standard Yocto layers are not included because they are publicly available and can be downloaded from their official sources.
 
----
+## Repository Contents
 
-## 🚀 Quick Start Guide
+```text
+.
+├── conf/
+│   ├── local.conf
+│   └── bblayers.conf
+└── meta-dawid/
+```
 
-### 1. Prerequisites
-Ensure your host system has all the necessary packages installed for Yocto compilation. For Ubuntu/Debian, run:
+### File Description
+
+* `local.conf` – build configuration parameters.
+* `bblayers.conf` – list of layers used by the project.
+* `meta-dawid` – custom layer containing recipes, configurations, or project-specific modifications.
+
+## Required Layers
+
+To build the project successfully, you need to download the standard Yocto layers, which are not included in this repository.
+
+Example layer setup:
+
+* poky
+
+  * meta
+  * meta-poky
+  * meta-yocto-bsp
+* meta-openembedded
+
+  * meta-oe
+  * meta-python
+  * meta-qt6
+
+## Downloading Layers
+
+Example:
 
 ```bash
-sudo apt update
-sudo apt install gawk wget git diffstat unzip texinfo gcc build-essential \
-chrpath socat cpio python3 python3-pip python3-pexpect xz-utils \
-debianutils iputils-ping python3-git python3-jinja2 python3-subunit \
-zstd liblz4-tool file locales libsdl1.2-dev xterm lz4
+git clone git://git.yoctoproject.org/poky
+git clone https://github.com/openembedded/meta-openembedded.git
+git clone https://code.qt.io/yocto/meta-qt6.git
+```
+
+After downloading the layers:
+
+1. Create a Yocto build environment.
+2. Copy the `local.conf` and `bblayers.conf` files from this repository.
+3. Add the custom layer included in this repository.
+4. Verify the layer paths in `bblayers.conf`.
+
+## Building the Image
+
+```bash
+source oe-init-build-env
+
+bitbake <image-name>
+```
+
+Example:
+
+```bash
+bitbake core-image-minimal
+```
+
+## Project Goals
+
+* Yocto Project environment configuration,
+* Qt6 integration,
+* QML application support,
+* creating custom layers and recipes,
+* building Embedded Linux images.
+
+## Notes
+
+This repository intentionally does not include standard Yocto layers such as:
+
+* poky,
+* meta-openembedded,
+* meta-qt6,
+* other external layers.
+
+These are officially maintained projects and should be downloaded separately. This repository contains only files specific to this configuration and the custom project layer.
+
+## License
+
+This project is provided for educational and demonstration purposes.
