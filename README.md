@@ -84,6 +84,12 @@ or
 bitbake core-image-weston
 ```
 
+## Running the image on Raspberry pi 5
+```bash
+qmlscene 
+```
+
+
 ## Project Goals
 
 * Yocto Project environment configuration,
