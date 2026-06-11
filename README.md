@@ -86,7 +86,7 @@ bitbake core-image-weston
 
 ## Running the image on Raspberry pi 5
 ```bash
-qmlscene 
+qmlscene hello.qml
 ```
 
 
